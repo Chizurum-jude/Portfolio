@@ -1,101 +1,794 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#07111f" />
-  <meta name="description" content="Portfolio of Chizurum Jude Kenechukwu, aspiring web developer building responsive websites and interactive web apps." />
-  <title>Chizurum | Web Developer Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Chizurum's web development portfolio featuring web applications and creative projects.">
+  <title>Chizurum | Web Developer</title>
+
   <style>
-    :root{--bg:#07111f;--panel:#0d1b2c;--panel2:#102238;--text:#eef5ff;--muted:#a8b8ca;--green:#38e6a5;--blue:#66b8ff;--line:rgba(180,210,240,.14);--max:1120px}
-    *{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
-    body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(ellipse at 80% 0%,rgba(30,111,142,.18),transparent 35%),var(--bg);color:var(--text);line-height:1.65}
-    a{color:inherit;text-decoration:none} button,a{ -webkit-tap-highlight-color:transparent }
-    .wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
-    header{position:sticky;top:0;z-index:20;background:rgba(7,17,31,.86);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
-    nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-    .brand{font-weight:850;letter-spacing:-.04em;font-size:1.15rem}.brand span{color:var(--green)}
-    .navlinks{display:flex;align-items:center;gap:25px;color:var(--muted);font-size:.93rem}.navlinks a:hover{color:var(--green)}
-    .menu{display:none;background:none;border:1px solid var(--line);color:var(--text);padding:7px 10px;border-radius:10px;font-size:1.15rem}
-    .hero{padding:100px 0 86px;display:grid;grid-template-columns:1.35fr .65fr;gap:48px;align-items:center;min-height:570px}
-    .eyebrow{display:inline-flex;gap:9px;align-items:center;color:var(--green);font-size:.84rem;font-weight:750;letter-spacing:.09em;text-transform:uppercase;margin-bottom:20px}
-    .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 15px var(--green)}
-    h1{font-size:clamp(2.8rem,6.3vw,5.2rem);line-height:1.04;letter-spacing:-.065em;max-width:760px}h1 span{background:linear-gradient(100deg,var(--green),var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent}
-    .hero p{color:var(--muted);font-size:1.08rem;max-width:620px;margin:25px 0 30px}
-    .actions{display:flex;gap:13px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:12px 18px;border-radius:12px;font-weight:750;font-size:.94rem;border:1px solid var(--line);transition:transform .2s,border-color .2s,background .2s}.btn:hover{transform:translateY(-2px)}.primary{background:var(--green);color:#042016;border-color:var(--green)}.primary:hover{background:#69f0bd}.secondary{background:rgba(255,255,255,.025)}.secondary:hover{border-color:var(--blue)}
-    .hero-card{padding:27px;border:1px solid rgba(102,184,255,.25);border-radius:24px;background:linear-gradient(145deg,rgba(16,34,56,.96),rgba(9,23,39,.92));box-shadow:0 25px 80px rgba(0,0,0,.22);position:relative;overflow:hidden}.hero-card:before{content:"";position:absolute;width:190px;height:190px;border-radius:50%;background:rgba(56,230,165,.11);filter:blur(3px);right:-70px;top:-75px}.terminal{position:relative;background:#06101d;border:1px solid var(--line);border-radius:15px;overflow:hidden}.terminal-top{display:flex;gap:6px;padding:13px;border-bottom:1px solid var(--line)}.terminal-top i{width:8px;height:8px;border-radius:50%;background:#52657a}.terminal-body{padding:23px 20px;font: .88rem/2.05 ui-monospace,SFMono-Regular,Menlo,monospace;color:#b5c8da}.terminal-body .green{color:var(--green)}.terminal-body .blue{color:var(--blue)}.stat-row{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:15px}.stat{border:1px solid var(--line);border-radius:13px;padding:14px;background:rgba(255,255,255,.025)}.stat strong{display:block;font-size:1.2rem;color:var(--green)}.stat small{color:var(--muted)}
-    section{padding:74px 0}.section-head{margin-bottom:30px}.kicker{color:var(--green);font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.13em}.section-head h2{font-size:clamp(2rem,4vw,3rem);letter-spacing:-.045em;line-height:1.15;margin-top:8px}.section-head p{color:var(--muted);max-width:650px;margin-top:12px}
-    .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:26px}.panel{background:linear-gradient(145deg,rgba(16,34,56,.78),rgba(10,24,40,.8));border:1px solid var(--line);border-radius:20px;padding:27px}.panel p{color:var(--muted)}.panel p+p{margin-top:14px}.mini-title{font-weight:800;margin-bottom:13px}.chips{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}.chip{padding:7px 11px;border:1px solid var(--line);background:rgba(255,255,255,.025);border-radius:9px;font-size:.85rem;color:#dce9f8}
-    .skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.skill{padding:19px;border:1px solid var(--line);border-radius:16px;background:rgba(13,27,44,.75)}.skill b{display:block;margin-bottom:6px}.skill p{color:var(--muted);font-size:.9rem}
-    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.project{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:linear-gradient(145deg,rgba(16,34,56,.85),rgba(9,22,37,.9));display:flex;flex-direction:column;min-width:0;transition:transform .2s,border-color .2s}.project:hover{transform:translateY(-4px);border-color:rgba(56,230,165,.42)}
-    .project-art{min-height:170px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:linear-gradient(135deg,#102e40,#0c1a2e)}.project-art:before,.project-art:after{content:"";position:absolute;border:1px solid rgba(255,255,255,.13);border-radius:22px;transform:rotate(-13deg)}.project-art:before{width:190px;height:115px}.project-art:after{width:145px;height:88px;transform:rotate(12deg)}.art-icon{font-size:3rem;position:relative;z-index:1;filter:drop-shadow(0 8px 20px rgba(0,0,0,.35))}.project:nth-child(2) .project-art{background:linear-gradient(135deg,#203e55,#15203d)}.project:nth-child(3) .project-art{background:linear-gradient(135deg,#153b37,#11243a)}.project:nth-child(4) .project-art{background:linear-gradient(135deg,#24452f,#112438)}
-    .project-content{padding:22px;display:flex;flex-direction:column;flex:1}.project-top{display:flex;align-items:center;justify-content:space-between;gap:10px}.project h3{font-size:1.22rem;letter-spacing:-.02em}.status{font-size:.72rem;font-weight:750;color:var(--green);border:1px solid rgba(56,230,165,.26);background:rgba(56,230,165,.07);border-radius:999px;padding:4px 8px;white-space:nowrap}.project-content p{color:var(--muted);margin:12px 0 17px;font-size:.94rem}.tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px}.tags span{font-size:.76rem;color:#c7d9eb;background:rgba(255,255,255,.055);padding:4px 8px;border-radius:6px}.project-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto}.project-links .btn{padding:9px 12px;font-size:.84rem}.disabled{opacity:.48;cursor:not-allowed;pointer-events:none}
-    .contact-box{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:32px;border:1px solid rgba(56,230,165,.25);border-radius:22px;background:linear-gradient(110deg,rgba(56,230,165,.07),rgba(102,184,255,.06))}.contact-box h3{font-size:1.55rem;letter-spacing:-.03em}.contact-box p{color:var(--muted);margin-top:7px;max-width:620px}.contact-actions{display:flex;gap:10px;flex-wrap:wrap;flex-shrink:0}
-    footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:.87rem}.footer-inner{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
-    @media(max-width:800px){.hero{grid-template-columns:1fr;padding:75px 0 55px;gap:30px;min-height:unset}.hero-card{max-width:520px}.about-grid{grid-template-columns:1fr}.skills-grid{grid-template-columns:repeat(2,1fr)}.contact-box{align-items:flex-start;flex-direction:column}.navlinks{gap:15px}}
-    @media(max-width:580px){.wrap{width:min(var(--max),calc(100% - 28px))}nav{min-height:64px}.menu{display:block}.navlinks{display:none;position:absolute;top:64px;left:0;right:0;padding:18px 22px 22px;background:#091626;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start}.navlinks.open{display:flex}.hero{padding-top:62px}h1{font-size:clamp(2.55rem,12vw,4rem)}section{padding:56px 0}.projects{grid-template-columns:1fr}.skills-grid{grid-template-columns:1fr 1fr}.panel{padding:21px}.contact-box{padding:23px}.stat-row{gap:8px}}
-    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto;transition:none!important}}
+    :root {
+      --bg: #080e19;
+      --surface: #101a2b;
+      --surface-light: #152239;
+      --green: #38f2a1;
+      --blue: #59a8ff;
+      --text: #f4f7fc;
+      --muted: #9baac0;
+      --border: rgba(255,255,255,.09);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: auto;
+    }
+
+    /* NAVIGATION */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(8, 14, 25, .93);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: var(--green);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: .95rem;
+      transition: color .2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--green);
+    }
+
+    .nav-links .nav-contact {
+      border: 1px solid var(--green);
+      padding: 9px 18px;
+      border-radius: 8px;
+      color: var(--green);
+    }
+
+    .menu-btn {
+      display: none;
+      background: none;
+      border: 0;
+      color: white;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 620px;
+      display: flex;
+      align-items: center;
+      padding: 95px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: var(--green);
+      opacity: .08;
+      filter: blur(120px);
+      right: -100px;
+      top: 50px;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      max-width: 760px;
+      position: relative;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--green);
+      background: rgba(56, 242, 161, .08);
+      border: 1px solid rgba(56, 242, 161, .2);
+      border-radius: 30px;
+      padding: 6px 14px;
+      font-size: .85rem;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.8rem, 7vw, 5.3rem);
+      line-height: 1.08;
+      letter-spacing: -3px;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 span {
+      color: var(--green);
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 620px;
+      font-size: 1.08rem;
+      margin-bottom: 32px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 23px;
+      border-radius: 8px;
+      font-weight: 700;
+      border: 1px solid var(--border);
+      transition: transform .2s, background .2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-primary {
+      color: #06130d;
+      background: var(--green);
+      border-color: var(--green);
+    }
+
+    .btn-secondary {
+      color: var(--text);
+      background: var(--surface);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 38px;
+      flex-wrap: wrap;
+      margin-top: 55px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.5rem;
+      color: var(--text);
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    /* GENERAL SECTIONS */
+    section {
+      padding: 90px 0;
+      scroll-margin-top: 75px;
+    }
+
+    .section-heading {
+      margin-bottom: 40px;
+    }
+
+    .section-heading .small-title {
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: .8rem;
+      font-weight: 700;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.2;
+      margin: 10px 0;
+      letter-spacing: -1px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      max-width: 600px;
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 45px;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .about-text strong {
+      color: var(--text);
+    }
+
+    .skills-card {
+      padding: 27px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+    }
+
+    .skills-card h3 {
+      margin-bottom: 18px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill {
+      padding: 7px 12px;
+      background: var(--surface-light);
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      color: #dbe6f5;
+      font-size: .87rem;
+    }
+
+    /* PROJECTS */
+    .projects {
+      background: #0b1220;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 25px;
+    }
+
+    .project-card {
+      overflow: hidden;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      transition: transform .25s, border-color .25s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(56, 242, 161, .5);
+    }
+
+    .project-art {
+      width: 100%;
+      height: 250px;
+      overflow: hidden;
+      background: #111e31;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .project-art img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      transition: transform .4s;
+    }
+
+    .project-card:hover .project-art img {
+      transform: scale(1.035);
+    }
+
+    .project-info {
+      padding: 25px;
+    }
+
+    .project-info h3 {
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+    }
+
+    .project-info p {
+      color: var(--muted);
+      font-size: .94rem;
+      margin-bottom: 18px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+
+    .tag {
+      font-size: .77rem;
+      color: var(--green);
+      background: rgba(56, 242, 161, .08);
+      padding: 4px 10px;
+      border-radius: 5px;
+    }
+
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .project-links a {
+      font-size: .9rem;
+      font-weight: 700;
+      color: var(--green);
+    }
+
+    .project-links a:hover {
+      color: var(--blue);
+    }
+
+    /* CONTACT */
+    .contact-box {
+      padding: 45px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #12243a, #101a2b);
+      border: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .contact-box h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 15px;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      max-width: 570px;
+      margin: 0 auto 25px;
+    }
+
+    footer {
+      padding: 25px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .footer-content a {
+      color: var(--green);
+    }
+
+    /* MOBILE */
+    @media (max-width: 700px) {
+      .menu-btn {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        width: 100%;
+        padding: 22px 5%;
+        background: #0c1423;
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 85px 0;
+      }
+
+      .hero h1 {
+        letter-spacing: -1.5px;
+      }
+
+      .hero-stats {
+        gap: 24px;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+
+      .about-grid,
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-grid {
+        gap: 25px;
+      }
+
+      .project-art {
+        height: 220px;
+      }
+
+      .contact-box {
+        padding: 30px 20px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+    }
   </style>
 </head>
+
 <body>
+
   <header>
-    <nav class="wrap" aria-label="Main navigation">
-      <a class="brand" href="#home">CJ<span>.</span></a>
-      <button class="menu" id="menuButton" aria-label="Open navigation" aria-expanded="false">☰</button>
-      <div class="navlinks" id="navLinks">
-        <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
-        <a href="https://github.com/Chizurum-jude" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-      </div>
+    <nav class="container">
+      <a href="#home" class="logo">Chizurum<span>.</span></a>
+
+      <button class="menu-btn" id="menuBtn"
+        aria-label="Open navigation menu"
+        aria-expanded="false">☰</button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact" class="nav-contact">Contact Me</a></li>
+      </ul>
     </nav>
   </header>
+
   <main>
-    <section class="hero wrap" id="home">
-      <div>
-        <div class="eyebrow"><span class="dot"></span> Aspiring Web Developer</div>
-        <h1>Hi, I’m Chizurum.<br />I build for the <span>web.</span></h1>
-        <p>I’m a student and aspiring web developer learning by building practical websites and interactive apps. I enjoy turning ideas into clean, responsive experiences with HTML, CSS and JavaScript.</p>
-        <div class="actions"><a class="btn primary" href="#projects">Explore my projects <span>↘</span></a><a class="btn secondary" href="https://github.com/Chizurum-jude" target="_blank" rel="noopener noreferrer">View GitHub ↗</a></div>
-      </div>
-      <div class="hero-card" aria-label="Code preview">
-        <div class="terminal"><div class="terminal-top"><i></i><i></i><i></i></div><div class="terminal-body"><div><span class="blue">const</span> developer = {</div><div>&nbsp;&nbsp;name: <span class="green">'Chizurum'</span>,</div><div>&nbsp;&nbsp;focus: <span class="green">'Web Development'</span>,</div><div>&nbsp;&nbsp;tools: [<span class="green">'HTML'</span>, <span class="green">'CSS'</span>,</div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="green">'JavaScript'</span>],</div><div>&nbsp;&nbsp;mindset: <span class="green">'Keep learning'</span></div><div>};<span class="blue"> ▍</span></div></div></div>
-        <div class="stat-row"><div class="stat"><strong>4</strong><small>Featured projects</small></div><div class="stat"><strong>Always</strong><small>Learning & building</small></div></div>
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <span class="eyebrow">Available for opportunities</span>
+
+          <h1>
+            Building for the <span>web.</span><br>
+            One project at a time.
+          </h1>
+
+          <p>
+            Hi, I'm Chizurum — an aspiring web developer who enjoys
+            building useful, creative and responsive websites.
+            I'm learning, improving and turning ideas into real projects.
+          </p>
+
+          <div class="buttons">
+            <a href="#projects" class="btn btn-primary">Explore My Work ↗</a>
+            <a href="#contact" class="btn btn-secondary">Let's Connect</a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat">
+              <strong>04</strong>
+              <span>Featured projects</span>
+            </div>
+
+            <div class="stat">
+              <strong>Web</strong>
+              <span>Development focus</span>
+            </div>
+
+            <div class="stat">
+              <strong>Always</strong>
+              <span>Learning and building</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="about"><div class="wrap"><div class="section-head"><div class="kicker">A little about me</div><h2>Curious mind. Builder mindset.</h2><p>I’m developing my front-end skills through hands-on projects and learning how to build useful, accessible websites.</p></div>
-      <div class="about-grid"><div class="panel"><div class="mini-title">Who I am</div><p>I’m Chizurum Jude Kenechukwu, an aspiring web developer and student at Pan-Atlantic University. I’m building my skills one project at a time, from business websites to small interactive applications.</p><p>I’m open to learning opportunities, internships and collaborating with people who want to build useful things for the web.</p></div><div class="panel"><div class="mini-title">What I’m working toward</div><p>Strengthening my JavaScript skills, improving responsive design, learning better development workflows and turning project prototypes into polished live websites.</p><div class="chips"><span class="chip">Front-end development</span><span class="chip">Responsive design</span><span class="chip">Problem solving</span><span class="chip">Continuous learning</span></div></div></div>
-    </div></section>
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <div class="section-heading">
+          <span class="small-title">A little about me</span>
+          <h2>Who I Am</h2>
+          <p>Curious about technology. Interested in solving problems through code.</p>
+        </div>
 
-    <section id="skills"><div class="wrap"><div class="section-head"><div class="kicker">My toolkit</div><h2>Skills I’m building</h2><p>These are the tools and areas I use while working on my current projects.</p></div>
-      <div class="skills-grid"><div class="skill"><b>HTML5</b><p>Structuring clear, semantic web pages.</p></div><div class="skill"><b>CSS3</b><p>Layouts, styling and responsive interfaces.</p></div><div class="skill"><b>JavaScript</b><p>Interactive features and front-end logic.</p></div><div class="skill"><b>GitHub</b><p>Hosting code and publishing sites with GitHub Pages.</p></div></div>
-    </div></section>
+        <div class="about-grid">
+          <div class="about-text">
+            <p>
+              I'm an aspiring web developer focused on creating websites
+              and web applications that look good and work properly.
+            </p>
 
-    <section id="projects"><div class="wrap"><div class="section-head"><div class="kicker">Selected work</div><h2>Projects I’ve been building</h2><p>A mix of practical web projects and experiments. A project marked “In progress” may not have a public demo yet.</p></div>
-      <div class="projects">
-        <article class="project"><div class="project-art"><div class="art-icon">⌘</div></div><div class="project-content"><div class="project-top"><h3>Personal Portfolio</h3><span class="status">Live site</span></div><p>A personal website to introduce me, highlight my skills and projects, and make it easy for people to contact me.</p><div class="tags"><span>HTML</span><span>CSS</span><span>Responsive design</span><span>GitHub Pages</span></div><div class="project-links"><a class="btn primary" href="https://chizurum-jude.github.io/Portfolio/" target="_blank" rel="noopener noreferrer">Live Demo ↗</a><a class="btn secondary" href="https://github.com/Chizurum-jude/Portfolio" target="_blank" rel="noopener noreferrer">View Code ↗</a></div></div></article>
-        <article class="project"><div class="project-art"><div class="art-icon">☁</div></div><div class="project-content"><div class="project-top"><h3>SkyCast Weather App</h3><span class="status">In progress</span></div><p>A weather-app project focused on presenting weather information in a clear, simple interface. Update this description to match the features you have finished.</p><div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>API practice</span></div><div class="project-links"><a class="btn secondary disabled" href="#projects" aria-disabled="true" tabindex="-1">Demo not published</a><a class="btn secondary" href="https://github.com/Chizurum-jude" target="_blank" rel="noopener noreferrer">Find Code on GitHub ↗</a></div></div></article>
-        <article class="project"><div class="project-art"><div class="art-icon">✓</div></div><div class="project-content"><div class="project-top"><h3>DevQuiz</h3><span class="status">Project</span></div><p>A quiz app concept for answering multiple-choice questions, tracking a score and showing results at the end.</p><div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>DOM</span></div><div class="project-links"><a class="btn secondary disabled" href="#projects" aria-disabled="true" tabindex="-1">Demo not published</a><a class="btn secondary" href="https://github.com/Chizurum-jude" target="_blank" rel="noopener noreferrer">Find Code on GitHub ↗</a></div></div></article>
-        <article class="project"><div class="project-art"><div class="art-icon">▣</div></div><div class="project-content"><div class="project-top"><h3>OJ Capital Store</h3><span class="status">E-commerce</span></div><p>An online-store website concept for chargers, power banks and cables, with product listings, cart flow and WhatsApp checkout.</p><div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Shopping cart</span></div><div class="project-links"><a class="btn secondary disabled" href="#projects" aria-disabled="true" tabindex="-1">Demo not published</a><a class="btn secondary" href="https://github.com/Chizurum-jude/Oj-captitalstore" target="_blank" rel="noopener noreferrer">View Code ↗</a></div></div></article>
+            <p>
+              I've worked on projects ranging from a personal portfolio
+              to a weather application, a quiz application and an online
+              product store.
+            </p>
+
+            <p>
+              My goal is to keep improving my skills, learn from real-world
+              projects and grow into a professional developer.
+            </p>
+
+            <a href="#projects" class="btn btn-secondary">See My Projects ↗</a>
+          </div>
+
+          <div class="skills-card">
+            <h3>My Toolkit</h3>
+
+            <div class="skills">
+              <span class="skill">HTML</span>
+              <span class="skill">CSS</span>
+              <span class="skill">JavaScript</span>
+              <span class="skill">Responsive Design</span>
+              <span class="skill">GitHub</span>
+              <span class="skill">GitHub Pages</span>
+              <span class="skill">Web UI</span>
+            </div>
+          </div>
+        </div>
       </div>
-    </div></section>
+    </section>
 
-    <section id="contact"><div class="wrap"><div class="contact-box"><div><div class="kicker">Get in touch</div><h3>Have an opportunity or project?</h3><p>I’m open to internships, feedback and opportunities to keep learning as a web developer. Reach out through GitHub or add your preferred email address below.</p></div><div class="contact-actions"><a class="btn primary" href="https://github.com/Chizurum-jude" target="_blank" rel="noopener noreferrer">GitHub Profile ↗</a><a class="btn secondary" href="mailto:YOUR_EMAIL@example.com">Email me ↗</a></div></div></div></section>
+    <!-- PROJECTS -->
+    <section class="projects" id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <span class="small-title">Things I've built</span>
+          <h2>Featured Projects</h2>
+          <p>
+            A selection of my work. Each project is part of my journey
+            in learning and building for the web.
+          </p>
+        </div>
+
+        <div class="project-grid">
+
+          <!-- PORTFOLIO -->
+          <article class="project-card">
+            <div class="project-art">
+              <img src="portfolio.png"
+                alt="Personal portfolio website screenshot"
+                loading="lazy">
+            </div>
+
+            <div class="project-info">
+              <h3>Personal Portfolio</h3>
+              <p>
+                A personal website showcasing my projects, skills and
+                journey as an aspiring web developer.
+              </p>
+
+              <div class="tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+              </div>
+
+              <div class="project-links">
+                <a href="https://chizurum-jude.github.io/Portfolio/"
+                  target="_blank" rel="noopener noreferrer">Live Demo ↗</a>
+
+                <a href="https://github.com/Chizurum-jude/Portfolio"
+                  target="_blank" rel="noopener noreferrer">Source Code ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- SKyCAST -->
+          <article class="project-card">
+            <div class="project-art">
+              <img src="skycast.png"
+                alt="SkyCast weather application screenshot"
+                loading="lazy">
+            </div>
+
+            <div class="project-info">
+              <h3>SkyCast Weather App</h3>
+              <p>
+                A weather application project designed to present
+                weather information through a clean interface.
+              </p>
+
+              <div class="tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Weather</span>
+              </div>
+
+              <div class="project-links">
+                <a href="https://github.com/Chizurum-jude"
+                  target="_blank" rel="noopener noreferrer">View on GitHub ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- DEVQUIZ -->
+          <article class="project-card">
+            <div class="project-art">
+              <img src="devquiz.png"
+                alt="DevQuiz application screenshot"
+                loading="lazy">
+            </div>
+
+            <div class="project-info">
+              <h3>DevQuiz</h3>
+              <p>
+                A quiz application project built around answering
+                questions and testing knowledge through an interactive interface.
+              </p>
+
+              <div class="tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Quiz App</span>
+              </div>
+
+              <div class="project-links">
+                <a href="https://github.com/Chizurum-jude"
+                  target="_blank" rel="noopener noreferrer">View on GitHub ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- OJ CAPITAL -->
+          <article class="project-card">
+            <div class="project-art">
+              <img src="oj-capital.png"
+                alt="OJ Capital online store screenshot"
+                loading="lazy">
+            </div>
+
+            <div class="project-info">
+              <h3>OJ Capital Store</h3>
+              <p>
+                An online store concept for phone accessories, featuring
+                product listings, a shopping cart and WhatsApp checkout.
+              </p>
+
+              <div class="tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">E-commerce</span>
+              </div>
+
+              <div class="project-links">
+                <a href="https://github.com/Chizurum-jude"
+                  target="_blank" rel="noopener noreferrer">View on GitHub ↗</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <span class="small-title">Have a project in mind?</span>
+
+          <h2>Let's Build Something.</h2>
+
+          <p>
+            I'm interested in learning opportunities, collaborations
+            and connecting with people in tech. Feel free to reach out.
+          </p>
+
+          <div class="buttons" style="justify-content:center">
+            <a href="https://github.com/Chizurum-jude"
+              target="_blank" rel="noopener noreferrer"
+              class="btn btn-primary">Find Me on GitHub ↗</a>
+
+            <a href="mailto:YOUR_EMAIL@example.com"
+              class="btn btn-secondary">Send Me an Email</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
-  <footer><div class="wrap footer-inner"><span>© <span id="year"></span> Chizurum Jude Kenechukwu</span><span>Built with HTML, CSS & JavaScript</span></div></footer>
+
+  <footer>
+    <div class="container footer-content">
+      <span>© <span id="year"></span> Chizurum. Built with HTML, CSS & JavaScript.</span>
+      <a href="#home">Back to top ↑</a>
+    </div>
+  </footer>
+
   <script>
-    const menuButton = document.getElementById('menuButton');
-    const navLinks = document.getElementById('navLinks');
-    menuButton.addEventListener('click', () => {
-      const isOpen = navLinks.classList.toggle('open');
-      menuButton.setAttribute('aria-expanded', String(isOpen));
-      menuButton.textContent = isOpen ? '✕' : '☰';
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", function () {
+      const isOpen = navLinks.classList.toggle("open");
+
+      menuBtn.setAttribute("aria-expanded", isOpen);
+      menuBtn.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation menu" : "Open navigation menu"
+      );
+
+      menuBtn.textContent = isOpen ? "✕" : "☰";
     });
-    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-      navLinks.classList.remove('open');
-      menuButton.setAttribute('aria-expanded', 'false');
-      menuButton.textContent = '☰';
-    }));
-    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Close the mobile menu after clicking a navigation link.
+    document.querySelectorAll(".nav-links a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        navLinks.classList.remove("open");
+        menuBtn.setAttribute("aria-expanded", "false");
+        menuBtn.setAttribute("aria-label", "Open navigation menu");
+        menuBtn.textContent = "☰";
+      });
+    });
+
+    // Update the copyright year automatically.
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+
 </body>
 </html>
