@@ -1,0 +1,686 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Chizurum Jude Kenechukwu, aspiring web developer and Computer Science student.">
+    <title>Chizurum Jude | Web Developer</title>
+
+    <style>
+        :root {
+            --bg: #080e19;
+            --surface: #101a2b;
+            --blue: #70a9ff;
+            --green: #72e0b0;
+            --white: #f5f7fb;
+            --muted: #a5b1c4;
+            --border: #27354b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 85px;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--bg);
+            color: var(--white);
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1100px, 90%);
+            margin: auto;
+        }
+
+        /* NAVIGATION */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: rgba(8, 14, 25, 0.95);
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav {
+            min-height: 75px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--green);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            font-size: 14px;
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--green);
+        }
+
+        .nav-links .contact-link {
+            color: var(--white);
+            border: 1px solid var(--border);
+            padding: 9px 15px;
+            border-radius: 7px;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 570px;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: center;
+            gap: 55px;
+            padding-top: 70px;
+            padding-bottom: 70px;
+        }
+
+        .eyebrow {
+            color: var(--green);
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 5vw, 62px);
+            line-height: 1.12;
+            letter-spacing: -2px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span {
+            color: var(--blue);
+        }
+
+        .hero-text {
+            color: var(--muted);
+            max-width: 540px;
+            font-size: 16px;
+            margin-bottom: 28px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 13px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 19px;
+            border-radius: 7px;
+            font-size: 14px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+        }
+
+        .primary {
+            background: var(--green);
+            color: #07150f;
+        }
+
+        .primary:hover {
+            background: #a0f2cc;
+        }
+
+        .secondary {
+            border: 1px solid var(--border);
+            color: var(--white);
+        }
+
+        /* CODE CARD */
+
+        .code-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 13px;
+            overflow: hidden;
+            box-shadow: 0 25px 65px #0005;
+        }
+
+        .code-header {
+            padding: 14px 18px;
+            border-bottom: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .dots {
+            display: inline-flex;
+            gap: 5px;
+            margin-right: 10px;
+        }
+
+        .dots span {
+            width: 8px;
+            height: 8px;
+            display: inline-block;
+            background: #738198;
+            border-radius: 50%;
+        }
+
+        .dots span:first-child { background: #ff7777; }
+        .dots span:nth-child(2) { background: #f1cb6a; }
+        .dots span:nth-child(3) { background: #72e0b0; }
+
+        pre {
+            padding: 24px 20px;
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+            font: 13px/2 "Courier New", monospace;
+            color: #d4deef;
+        }
+
+        .purple { color: #c6a3ff; }
+        .green { color: var(--green); }
+        .blue { color: var(--blue); }
+
+        /* GENERAL SECTIONS */
+
+        section.content-section {
+            padding-top: 75px;
+            padding-bottom: 35px;
+        }
+
+        .section-label {
+            color: var(--green);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 12px;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: clamp(27px, 4vw, 38px);
+            letter-spacing: -1px;
+            margin-bottom: 28px;
+        }
+
+        .about-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 30px;
+        }
+
+        .about-card h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .about-card p {
+            color: var(--muted);
+            margin-bottom: 10px;
+        }
+
+        /* SKILLS */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .skill-card {
+            padding: 22px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            transition: 0.2s;
+        }
+
+        .skill-card:hover {
+            border-color: var(--blue);
+            transform: translateY(-3px);
+        }
+
+        .skill-symbol {
+            color: var(--green);
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 14px;
+        }
+
+        .skill-card h3 {
+            margin-bottom: 8px;
+            font-size: 17px;
+        }
+
+        .skill-card p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* PROJECTS */
+
+        .project-card {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .project-visual {
+            background: #12392e;
+            min-height: 300px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .store-name {
+            color: #dff9eb;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .store-message {
+            font-size: 36px;
+            line-height: 1.1;
+            font-weight: bold;
+            letter-spacing: -1px;
+        }
+
+        .store-message span {
+            color: var(--green);
+        }
+
+        .store-categories {
+            color: #d0e7dc;
+            font-size: 12px;
+            border-top: 1px solid #ffffff33;
+            padding-top: 13px;
+        }
+
+        .project-info {
+            padding: 30px;
+        }
+
+        .project-type {
+            color: var(--green);
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            margin-bottom: 13px;
+        }
+
+        .project-info h3 {
+            font-size: 24px;
+            margin-bottom: 13px;
+        }
+
+        .project-info p {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 23px;
+        }
+
+        .tags span {
+            background: #1c2a40;
+            color: #d7e2f2;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+
+        .project-link {
+            color: var(--green);
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .coming-soon {
+            margin-top: 16px;
+            padding: 20px;
+            border: 1px dashed var(--border);
+            border-radius: 10px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* CONTACT */
+
+        .contact-section {
+            margin-top: 80px;
+            padding: 70px 0;
+            text-align: center;
+            background: #0e192a;
+            border-top: 1px solid var(--border);
+        }
+
+        .contact-section .section-title {
+            margin-bottom: 12px;
+        }
+
+        .contact-section p {
+            color: var(--muted);
+            margin-bottom: 25px;
+        }
+
+        .contact-details {
+            margin-top: 28px;
+            font-size: 13px;
+            color: var(--muted);
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        footer {
+            padding: 23px 0;
+            text-align: center;
+            color: var(--muted);
+            font-size: 12px;
+            border-top: 1px solid var(--border);
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .code-card {
+                max-width: 520px;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .project-card {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .container {
+                width: 92%;
+            }
+
+            nav {
+                padding: 15px 0;
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .hero {
+                padding-top: 50px;
+            }
+
+            .hero h1 {
+                font-size: 39px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+
+            .skill-card {
+                padding: 16px;
+            }
+
+            .project-info {
+                padding: 23px;
+            }
+
+            .store-message {
+                font-size: 31px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav class="container">
+            <a href="#home" class="logo">CJ<span>.</span></a>
+
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact" class="contact-link">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="hero container" id="home">
+            <div>
+                <p class="eyebrow">Aspiring Web Developer</p>
+
+                <h1>Building ideas<br>into <span>web experiences.</span></h1>
+
+                <p class="hero-text">
+                    I'm Chizurum Jude Kenechukwu, a Computer Science student
+                    interested in creating useful, responsive and user-friendly
+                    websites. I'm building my skills through hands-on projects
+                    and continuous learning.
+                </p>
+
+                <div class="buttons">
+                    <a href="#projects" class="button primary">View My Projects ↘</a>
+                    <a href="#contact" class="button secondary">Contact Me</a>
+                </div>
+            </div>
+
+            <div class="code-card">
+                <div class="code-header">
+                    <span class="dots"><span></span><span></span><span></span></span>
+                    developer.js
+                </div>
+
+                <pre><span class="purple">const</span> developer = {
+  name: <span class="green">"Chizurum Jude"</span>,
+  role: <span class="green">"Web Developer"</span>,
+  skills: [
+    <span class="blue">"HTML"</span>,
+    <span class="blue">"CSS"</span>,
+    <span class="blue">"JavaScript"</span>
+  ],
+  mindset: <span class="green">"Always learning"</span>
+};
+
+<span class="purple">function</span> <span class="blue">createWebsite</span>() {
+  <span class="purple">return</span> <span class="green">"Ideas into reality"</span>;
+}</pre>
+            </div>
+        </div>
+
+        <section class="content-section container" id="about">
+            <p class="section-label">01 / About</p>
+            <h2 class="section-title">A little about me</h2>
+
+            <div class="about-card">
+                <h3>Learning by building.</h3>
+                <p>
+                    I'm a Computer Science student at Pan-Atlantic University.
+                    I enjoy learning how websites are built and using practical
+                    projects to improve my technical skills.
+                </p>
+                <p>
+                    My current focus is front-end web development, writing
+                    structured HTML, styling responsive layouts with CSS, and
+                    adding interactivity with JavaScript. I'm eager to learn
+                    from experienced developers and contribute to real projects.
+                </p>
+            </div>
+        </section>
+
+        <section class="content-section container" id="skills">
+            <p class="section-label">02 / Skills</p>
+            <h2 class="section-title">My technical toolkit</h2>
+
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-symbol">&lt;/&gt;</div>
+                    <h3>HTML</h3>
+                    <p>Structuring clear and accessible web pages.</p>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-symbol">✳</div>
+                    <h3>CSS</h3>
+                    <p>Styling layouts and responsive interfaces.</p>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-symbol">JS</div>
+                    <h3>JavaScript</h3>
+                    <p>Adding interactive features to websites.</p>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-symbol">GH</div>
+                    <h3>GitHub</h3>
+                    <p>Sharing code and managing project repositories.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section container" id="projects">
+            <p class="section-label">03 / Projects</p>
+            <h2 class="section-title">Selected work</h2>
+
+            <div class="project-card">
+                <div class="project-visual">
+                    <div class="store-name">OJ CAPITAL</div>
+                    <div class="store-message">
+                        POWER YOUR<br><span>EVERYDAY.</span>
+                    </div>
+                    <div class="store-categories">
+                        CHARGERS &nbsp; / &nbsp; POWER BANKS &nbsp; / &nbsp; CABLES
+                    </div>
+                </div>
+
+                <div class="project-info">
+                    <p class="project-type">FEATURED PROJECT / E-COMMERCE</p>
+                    <h3>OJ Capital Store</h3>
+                    <p>
+                        An e-commerce website project for a business selling
+                        chargers, power banks and cables. The project focuses
+                        on product listings, shopping interactions and the
+                        customer checkout experience.
+                    </p>
+
+                    <div class="tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                    </div>
+
+                    <a class="project-link"
+                       href="https://github.com/Chizurum-jude/Oj-captitalstore"
+                       target="_blank" rel="noopener noreferrer">
+                        Explore on GitHub ↗
+                    </a>
+                </div>
+            </div>
+
+            <div class="coming-soon">
+                <strong>More projects coming soon.</strong>
+                I'm continuing to build and add projects as I develop my skills.
+            </div>
+        </section>
+
+        <section class="contact-section" id="contact">
+            <div class="container">
+                <p class="section-label">04 / Contact</p>
+                <h2 class="section-title">Let's connect.</h2>
+                <p>
+                    I'm interested in learning opportunities, collaboration
+                    and web development internships.
+                </p>
+
+                <div class="buttons" style="justify-content:center">
+                    <a class="button primary"
+                       href="mailto:chizurumjude0@gmail.com">
+                        Email Me ↗
+                    </a>
+
+                    <a class="button secondary"
+                       href="https://github.com/Chizurum-jude"
+                       target="_blank" rel="noopener noreferrer">
+                        My GitHub
+                    </a>
+                </div>
+
+                <div class="contact-details">
+                    <span>chizurumjude0@gmail.com</span>
+                    <span>08067107519</span>
+                    <span>Lagos, Nigeria</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            © 2026 Chizurum Jude Kenechukwu. Built with HTML and CSS.
+        </div>
+    </footer>
+
+</body>
+</html>
